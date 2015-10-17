@@ -1,0 +1,108 @@
+
+<div class="wrapper1"><br>
+   <label id=canreg><h2 align="center">Registration-Form For Candidate</h2></label>
+
+
+   <table id="f2">
+              <tr>
+                  <td class="f1_label">First Name :</td><td>{{input value=firstname  id="Fname" }}
+                  </td>
+              </tr>
+              <br>
+              <tr>
+                    <td class="f1_label">Last Name :</td><td>{{input value=lastname id="Lname" }}
+                  </td>
+              </tr>
+                <br>
+              <tr>
+                    <td class="f1_label">E-Mail Address :</td><td>{{input value=emailaddress id="Email" }}
+                  </td>
+
+
+              </tr>
+  <br>
+              <tr>
+                    <td class="f1_label">Gender </td><td>Male  <input  type="radio"  name= "rd" value = "male" >  Female  <input  type="radio"  name= "rd" value = "female" >
+                  </td>
+
+
+              </tr>
+  <br>
+              <tr>
+                  <td class="f1_label">Heigher Qualification :</td><td>
+                <select>
+                  <option value="Select">Select Course</option>
+<option value="B.Sc.">B.Sc.</option>
+<option value="M.Sc.">M.Sc.</option>
+<option value="B.Tech.">B.Tech.</option>
+<option value="M.Tech.">M.Tech.</option>
+<option value="B.Ca.">B.Ca.</option>
+<option value="M.Ca.">M.Ca.</option>
+</select>
+  </td>
+
+              </tr>
+                <br>
+              <tr>
+                    <td class="f1_label">Phone Number :</td><td>{{input value=phonenumber id="Phone" }}
+                  </td>
+              </tr>
+                <br>
+              <tr>
+                    <td class="f1_label">Date Of Birth :</td><td>{{input value=dateofbirth id="DOB" }} DD/MM/YYYY
+                  </td>
+              </tr>
+                <br>
+              <tr>
+                    <td class="f1_label">Father's Name :</td><td>{{input value=fathername id="FthrName" }}
+                  </td>
+              </tr>
+                <br>
+              <tr>
+                    <td class="f1_label">10th % :</td><td>{{input value=tenper id="TenPer" }}
+                  </td>
+              </tr>
+                <br>
+              <tr>
+                    <td class="f1_label">12th % :</td><td>{{input value=twelveper id="TwlPer" }}
+                  </td>
+              </tr>
+                <br>
+              <tr>
+                    <td class="f1_label">Graduation % :</td><td>{{input value=gradper id="GradPer" }}
+                  </td>
+              </tr>
+                <br>
+
+
+                <tr>
+                    <td class="f1_label">Graduation Passout Year :</td><td>
+                  <select>
+                    <option value="Select">Select Year</option>
+              <option value="2000">2000</option>
+              <option value="2001">2001</option>
+              <option value="2002">2002</option>
+              <option value="2003">2003</option>
+              <option value="2004">2004</option>
+              <option value="2005">2005</option>
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+              <option value="2008">2008</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              </select>
+              </td>
+
+                </tr>
+
+  <br>
+
+          </table>
+
+          <input type="button" id="CanRegBtn" {{action 'canreg'}} name="Register" value="Register" style="font-size:18px; " />
+</div>

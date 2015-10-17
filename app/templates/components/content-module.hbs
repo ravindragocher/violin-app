@@ -1,0 +1,64 @@
+<script type="text/javascript" src="TextBoxClear.js"></script>
+<style>
+
+#modulenm
+{
+  color: red;
+  background-color: #c0d6e4;
+}
+
+#modulediv
+{
+  margin-left: 17px;
+}
+
+#buttons
+{
+  margin-left: 65px;
+}
+
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #6297BC;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 2px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 2px;
+	padding: 8px;
+  text-align:left;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #ffffff;
+}
+</style>
+<table class="gridtable" width="100%" border="0" cellspacing="1" cellpadding="1">
+<tr >
+  <td >
+<div id="modulediv">
+   Name : {{input value=newmodule}}  <span id="modulenm">
+       {{#if modulenameempty}}
+           *Enter Module Name.
+       {{else}}
+       {{/if}}
+     </span>
+<br>
+   enabled<input type="checkbox" name="myradio{{item.id}}" value="checked" checked="checked"  />
+    <br>
+   <input type="button" id="Update" name="Update" value="Update"/>
+   <input type="button" id="Delete" name="Delete" {{action 'deletemodule'}}value="Delete"/>
+   <input type="button" id="Add" name="Add" {{action 'addmodule'}} value="Add" />
+   <input type="button" id="Clear" name="Clear" value="Clear"/>
+</div>
+</td>
+</tr>
+</table>

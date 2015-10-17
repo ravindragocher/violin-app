@@ -1,0 +1,47 @@
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+
+
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:250px;
+    float:left;
+    padding:5px;
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px;
+}
+
+</style>
+<div id="header">
+  <h3>User Admin Page</h3>
+</div>
+<div id ="nav">
+  <br>
+  <br>
+
+  <input type="button" {{action 'usermanagement'}} name="usermanagement" value="UserManagement" style="font-size:24px; " />
+
+
+<br>
+<br>
+
+<input type="button" {{action 'tokengenerator'}} name="tokengenerator" value="TokenGenerator" style="font-size:24px; " />
+
+<br>
+<br>
+
+<input type="button" {{action 'importfiles'}} name="importfiles" value="ImportFiles" style="font-size:24px; " />
+
+<br>
+<br>
+</div>

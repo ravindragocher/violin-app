@@ -1,0 +1,67 @@
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="checkbox.js"></script>
+<style type="text/css">
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	text-align: center;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+</style>
+<!-- Table goes in the document BODY -->
+<br><br>
+<table class="gridtable" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+	<tr>
+		<th>Number</th><th>User Name</th><th>Enable</th><th>Disable</th>
+	</tr>
+	{{#each euser as |item| }}
+	<tr>
+		<td>{{item.id}}</td><td>{{item.username}}</td>
+		<td><input type="checkbox" name="myradio{{item.id}}" value="checked" checked="checked"  /> </td>
+		<td><input type="checkbox" name="myradio{{item.id}}" value="checked" /> </td>
+	</tr>
+	{{/each}}
+	<!--<tr>
+		<td>2</td><td>Siba Mohanty</td>
+		<td><input type="radio" name="myradio2" value="checked" style="text-align:center; vertical-align:middle"/> </td>
+		<td><input type="radio" name="myradio2" value="checked" /> </td>
+	</tr>
+	<tr>
+		<td>3</td><td>Surjit Lahiri</td>
+		<td><input type="radio" name="myradio3" value="checked" style="text-align:center; vertical-align:middle"/> </td>
+		<td><input type="radio" name="myradio3" value="checked" /> </td>
+	</tr>
+	<tr>
+		<td>4</td><td>Ravindra Gochar</td>
+		<td><input type="radio" name="myradio4" value="checked" style="text-align:center; vertical-align:middle" /> </td>
+		<td><input type="radio" name="myradio4" value="checked" style="text-align:center; vertical-align:middle"/> </td>
+	</tr>
+	<tr>
+		<td>5</td><td>Ankush Goyal</td>
+		<td><input type="radio" name="myradio5" value="checked" style="text-align:center; vertical-align:middle"/> </td>
+		<td><input type="radio" name="myradio5" value="checked" style="text-align:center; vertical-align:middle"/> </td>
+	</tr>
+
+-->
+
+</table>

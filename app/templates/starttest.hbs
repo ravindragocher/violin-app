@@ -1,0 +1,41 @@
+<div class="wrapper2">
+  {{#unless login.loginFailed }}
+  <label id="tmr1">{{ timer-comp resetT=count}}</label>
+
+<br>
+{{starttest-item}}
+  {{/unless}}
+   Q.{{ questionNumber }} {{ questionText.question  }}
+<br><br>
+    <ul>
+   {{#each answerText  }}
+        <li>   <input type="checkbox" />  {{ this }}<br> </li>
+    {{/each}}
+    </ul>
+  <br>
+  <input type="button" id="btnprv" value = "Previous" {{action 'Previous_back' }}  />
+  <input type="button" id="btnsbmt" value = "Submit" {{action 'submit_answer'}} />
+  <input type="button"  id="btnskip" value = "Skip" {{action 'skip_question'}} />
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <input type="button"  id="btntrmnt" value = "Terminate Test" {{action 'Terminate_Test'}}/>
+<!--
+{{input type="checkbox" name="false" checked=false}}
+
+{{view "select" content=people
+                optionLabelPath="content.fullName"
+                optionValuePath="content.id"
+                prompt="Pick a person:"
+              selection=selectedPerson}}
+-->
+
+</div>

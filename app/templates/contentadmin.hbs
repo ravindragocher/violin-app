@@ -1,0 +1,89 @@
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+body{
+background:#222526;
+position:relative;
+padding:20px;
+font-family:verdana;
+}
+
+#nav {
+  line-height:30px;
+  background-color:#eeeeee;
+  height:600px;
+  width:500px;
+  float:left;
+  padding:15px;
+  margin-left: 10px;
+}
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #6297BC;
+	border-collapse: collapse;
+  width: 500px;
+}
+table.gridtable th {
+	border-width: 2px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 2px;
+	padding: 8px;
+  text-align:left;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #ffffff;
+}
+</style>
+<div id ="nav">
+
+<label id="contentadmin">Content-Admin</label>
+<br>
+<br>
+<input type="button" id="modulebtn" name="modulebtn" value="Modules Management" {{action 'clickonmodule'}}>
+   <input type="button" id="topicbtn" name="topicbtn" value="Topics Management" {{action 'clickontopic'}}/>
+   <input type="button" id="quesbtn" name="quesbtn" value="Question Management" {{action 'clickonQuestion'}}/>
+<table class="gridtable" width="100%" border="0" cellspacing="1" cellpadding="1">
+<tr >
+  <td >
+ Modules :
+
+ <select id="modselect" onchange={{action "selectmodule"}} >
+<option value="Select">Select a Module</option>
+	 {{#each model.modules as |item|}}
+         <option value="Select">{{item.module}}</option>
+     {{/each}}
+  </select>
+  </td>
+</tr>
+</table>
+
+    <div id = "section">
+      {{#if isClickedForModule}}
+          {{content-module action="addmodule" }}
+      {{/if}}
+
+{{#if isClickedForTopic}}
+    {{content-topic  topic = model.topics action="addtopic" }}
+{{/if}}
+
+{{#if isClickedForQuestion}}
+    {{content-question question = model.questions topic = model.topics addquestion="addquestion" addanswer="addanswer"}}
+{{/if}}
+
+    </div>
+
+<br>
+
+</div>

@@ -1,0 +1,47 @@
+<style type= text/css>
+#groupDesc{
+resize: none;
+}
+#addName{
+	resize:none;
+}
+#btnProp{
+  margin: auto;
+    width: 80%;
+    padding: 19px;
+}
+</style>
+
+
+<div class= "centertext">
+<table class="gridtable" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+	<td>Group Name : </td><td><input type= "text" name ="groupname" style="width:200px;"/></td>
+</tr>
+<tr>
+	<td>Group Description :</td><td><textarea type="text"
+       cols="40"
+       rows="5"
+       style="width:200px; height:50px;"
+       name="groupDesc"
+       id="groupDesc"
+       value=""></textarea></td>
+</tr>
+<tr>
+	<td>Add Name:</td><td><textarea type="text"
+       cols="40"
+       rows="5"
+       style="width:200px; height:50px;"
+       name="addName"
+       id="addName"
+       value=""></textarea></td>
+</tr>
+<br>
+<div id="btnProp">
+<input type="button" {{action 'btnsave'}} name="save" value="Save" style="font-size:18px; " /> &nbsp;
+	<input type="button" {{action 'btncancel'}} name="cancel" value="Cancel" style="font-size:18px; " />
+</div>
+
+</table>
+</div>

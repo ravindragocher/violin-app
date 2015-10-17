@@ -1,0 +1,54 @@
+<style>
+#usernameError
+{
+  color: red;
+}
+#passwordError
+{
+  color:red;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="login.css"/>
+<div id="loginform">
+<div  id="facebook"> <img src="Mindteck-icon.png" /><div id="connect">Connect with Mindteck (India) Pvt. Ltd.</div></div>
+<div id="mainlogin">
+<div id="or"></div>
+<h1>Log in with Mindteck Secure Online Exam</h1>
+<form action="#">
+  <span id="usernameError">
+    {{#if usernameFailed}}
+        *Invalid username.
+    {{else}}
+    {{/if}}
+  </span>
+  {{input value=username placeholder="Enter Username" name=username}}
+  <span id="passwordError">
+    {{#if passwordFailed}}
+        *Invalid password.
+    {{else}}
+    {{/if}}
+  </span>
+    {{input value=password type="password" placeholder="Enter password" }}
+
+<button type="submit" value="Submit" {{action 'login'}} > <img src="Arrow.png"/></button>
+
+               <div id="statusFailed" >
+                             <br>
+                             {{#if statusFailed}}
+                                 Login Failed,Contact your Admin
+                             {{else}}
+                                 <br>
+                             {{/if}}
+
+                              </div>
+
+               <div id="reg">
+            Not Registered Yet,Then {{#link-to 'candidateregistration'}}click me{{/link-to}}</div>
+</form>
+
+</div>
+</div>
+<div class="centered">
+
+   </div>

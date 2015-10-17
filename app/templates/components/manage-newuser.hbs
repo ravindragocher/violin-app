@@ -1,0 +1,64 @@
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	text-align: center;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+#chkbx{
+	margin:-1px 0 3px 0;
+     padding: 0;
+}
+
+</style>
+<!--<script type =javascript>
+$(function(){
+  $('input[type="radio"]').click(function(){
+    if ($(this).is('.selected'))
+    {
+      alert($(this).val());
+    }
+  });
+});
+</script>-->
+<!-- Table goes in the document BODY
+<div class ="babu" {{action "over" on="mouseEnter"}}>-->
+	<br><br>
+		<!--<div  class = "babu1" {{action "out" on="mouseLeave"}}>-->
+			<table class="gridtable" width="100%" border="0" cellspacing="2" cellpadding="2">
+					<tr>
+							<th>Number</th><th>User Name</th><th>Approved</th><th>Reject</th>
+					</tr>
+					{{#each nuser as |item|}}
+					<tr>
+						<td>{{item.id}}</td><td>{{item.username}}</td>
+						<td><input type="radio" name="myRadio{{item.id}}"  value="checked" class ="selected" /> </td>
+						<td><input type="radio" name="myRadio{{item.id}}" {{action "over" on="mouseOver"}} value="checked" class ="selected"/> </td>
+					</tr>
+					{{/each}}
+			</table>
+		<!--	{{#if isClickedforYes}}
+				you clicked on Approved radiobutton.
+			{{/if}}
+	 </div>
+
+</div>-->

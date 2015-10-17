@@ -1,0 +1,484 @@
+<script type="text/javascript" src="TextBoxClear.js"></script>
+<style>
+
+#newqspan
+{
+  color: red;
+  background-color: #c0d6e4;
+}
+
+#enabled
+{
+  margin-left: 38px;
+}
+
+#timespan
+{
+  color: red;
+  background-color: #c0d6e4;
+}
+
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #6297BC;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 2px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 2px;
+	padding: 8px;
+  text-align:left;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #ffffff;
+}
+
+
+
+table.anstable {
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #6297BC;
+	border-collapse: collapse;
+}
+table.anstable th {
+	border-width: 2px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #dedede;
+}
+table.anstable td {
+	border-width: 2px;
+	padding: 8px;
+  text-align:left;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #ffffff;
+}
+
+
+
+
+
+#topics
+{
+
+  margin-left: -80px;
+}
+
+#topicname
+{
+    margin-left: 30px;
+}
+
+#adupbtn
+{
+  margin-left: 170px;
+}
+#addQ
+{
+  margin-left: 70px;
+}
+#clearQ
+{
+    width: 100px;
+}
+#pos
+{
+  margin-left: 24px;
+}
+#diff
+{
+
+  margin-left: 15px;
+}
+.answerpage
+{
+	position:absolute;
+	margin-top: -230px;
+	 right:0;
+	 background-color: #dedede;
+	 margin-right: 370px;
+}
+
+
+#newq
+{
+	width: 100px;
+}
+
+
+#ansmanage
+{
+  margin-left: 50px;
+}
+
+#selectans
+{
+  margin-left: 41px;
+}
+
+#answer
+{
+  margin-left: 41px;
+}
+
+#ansspan
+{
+  color: red;
+  background-color: #c0d6e4;
+}
+
+#exp
+{
+    margin-left: 11px;
+}
+
+#explspan
+{
+  color: red;
+  background-color: #c0d6e4;
+}
+
+#right
+{
+    margin-left: 55px;
+}
+#posi
+{
+  margin-left: 40px;
+}
+
+#adansbtn
+{
+  margin-left: 45px;
+}
+
+#qpreview
+{
+    margin-top: 500px;
+}
+
+#btn
+{
+  position:absolute;
+  margin-top: -567px;
+   right:0;
+   background-color: #dedede;
+   margin-right: 370px;
+   width: 400px;
+}
+
+#free
+{
+  position:absolute;
+  margin-top: -567px;
+   right:0;
+   background-color: #dedede;
+   margin-right: 370px;
+   width: 400px;
+}
+
+
+#mcma
+{
+  position:absolute;
+  margin-top: -567px;
+   right:0;
+   background-color: #dedede;
+   margin-right: 370px;
+   width: 400px;
+}
+
+
+#reflection
+{
+     position:absolute;
+     top:0;
+     right:0;
+     width: 400px;
+     height: 150px;
+     background-color: #dedede;
+     margin-top: 20px;
+     margin-right: 370px;
+}
+
+
+#qpre
+{
+    margin-left: 110px;
+}
+
+#txtareaAns
+{
+  margin-left: 10px;
+  resize: none;
+}
+#txtareaQues
+{
+  margin-left: 10px;
+  resize: none;
+}
+
+#section
+{
+  width: 400px;
+}
+
+#diffSpan
+{
+  margin-left: 75px;
+}
+
+
+#Prev
+{
+  margin-left: 140px;
+}
+</style>
+<table class="gridtable" width="100%" border="0" cellspacing="1" cellpadding="1">
+<tr>
+  <td>
+<div id="topic">
+Topic : <select>
+<option value="Select">Select a Topic</option>
+{{#each topic as |item|}}
+      <option value="Select">{{item.topic}}</option>
+  {{/each}}
+</select>
+</div>
+
+
+{{#if preQues}}
+<div id="question">
+Question :</div> <select id="quesselect" onchange={{action "selectQues"}}>
+<option value="Select">Select Question</option>
+{{#each question as |item|}}
+      <option value={{item.id}}>{{item.question}}</option>
+  {{/each}}
+</select><input type="button"   value="New" {{action 'addNewquestion'}}   />
+<br>
+type :{{name}}
+<br>
+<input type="radio"  value="sa" name="select" checked={{isMcsa}} disabled="true" /> Single  Answer
+<br>
+<input type="radio" value="ma"  name="select" checked={{isMcma}} disabled="true" /> Multiple Answer
+<br>
+<input type="radio"   value="free"  name="select" checked={{isFree}} disabled="true" /> Free Answer
+<br>
+<input type="radio"  value="oa"  name="select" disabled="true" /> Ordering Answer
+<div id="diff">
+Difficulty : {{qDiff }} <span id="diffSpan"> <b>1-Easy  2-Average  3-Difficult</b></span>
+</div>
+<div id="pos">
+Position : {{qPos}}
+</div>
+<div id="tt">
+Timer[Sec] : {{qTimer}}
+</div>
+<div>
+Automatic Next :<input type="radio" disabled="true" checked={{qAutonxt}}   />
+Enabled :<input type="radio" disabled="true" checked={{qEnabled}} />
+</div>
+<div id="adupbtn">
+<input type="button" id="ansmanager" name="ansmanager" value="Manage Answers"  {{action 'manageAnswers'}}  />
+</div>
+{{/if}}
+
+{{#if isNewquestion}}
+<div id = "newquestiondiv" class="newquestionclass">
+  Question : <span id="newqspan">
+       {{#if quesEmpty}}
+           *Enter Question.
+       {{else}}
+       {{/if}}
+     </span>
+  <br>
+  <textarea rows="5" cols="50" id="txtareaQues" value=newquestion onkeyup={{action 'ref'}}  >
+  </textarea>
+  <br>
+  <input type="radio"  value="nsa" id="nsa" name="select" onchange={{action "singleAnswerSelect"}}  /> Single Answer
+  <br>
+  <input type="radio" value="nma" id="nma"  name="select"   /> Multiple Answer
+  <br>
+  <input type="radio"   value="nfree" id="nfree"  name="select"/> Free Answer
+  <br>
+  <input type="radio"  value="noa" id="noa"  name="select" /> Ordering Answer   <span id="newqspan">
+       {{#if typeEmpty}}
+           *Select Question Type.
+       {{else}}
+       {{/if}}
+     </span>
+  <div id="diff">
+  Difficulty : <select id="quDiff">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  </select>
+  </div>
+  <div id="pos">
+  Position : <select id="quPos">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  </select>
+  </div>
+  <div id="tt">
+  Timer[Sec] :<input type="checkbox" onchange={{action "timeCheck"}} />  {{#if timeChecked}}{{input value=timer id="quesTimer" placeholder="Enter time for question"}}{{/if}}
+  </div>
+  <div>
+  Automatic Next :<input type="checkbox"  value="checked" />
+  Enabled :<input type="checkbox"  value="checked" checked="checked"  />
+  </div>
+  <input type="button" id="addQ" name="addQ" value="Add Question" {{action 'addquestion'}}  />  <input type="button" id="manageAns" name="mngAns" value="Manage Answers" {{action 'manageAnswers'}}  /> <input type="button" id="Prev" name="Prev" value="Go Previous" {{action 'goPrevious'}}  />
+</div>
+{{/if}}
+
+
+</td>
+</tr>
+</table>
+
+ {{#if newQuesRef}}
+<div id="reflection"><div id="qpre"><b>Question-Preview</b></div><span><b>Q.</b>{{qtxt}}</span>
+</div>
+{{/if}}
+
+
+
+
+
+
+
+
+
+  {{#if ansmanager}}
+<div id = "section" class="answerpage">
+
+  <table class="anstable" width="100%" border="0" cellspacing="1" cellpadding="1">
+    <tr>
+      <td>
+  <div id="answertag">
+    <label id="ansmanage">Answers-Management</label>
+    </div>
+    <div id="selectans">
+  Answer : <select name="a">
+  <option value="0">Add New </option>
+  {{#each answerChoices as |item|}}
+        <option value="Select">{{item}}</option>
+  {{/each}}
+  </select>
+  </div>
+  <div id="answer">
+  Answer : {{input value=newans }}<span id="ansspan">
+      {{#if ansempty}}
+          *Enter Answer for Question.
+      {{else}}
+      {{/if}}
+    </span>
+  </div>
+  <div id="exp">
+  Explanation : {{input value=expl}}<span id="explspan">
+      {{#if explempty}}
+          *Enter Explanation for Answer.
+      {{else}}
+      {{/if}}
+    </span>
+  </div>
+  <div id="right">
+  Right :<input type="checkbox" name="rig" value="checked" />
+  </div>
+  <div id="enabled">
+  Enabled :<input type="checkbox"  value="checked" />
+  </div>
+
+  <div id="posi">
+  Position : <select>
+  <option value="Select">1</option>
+  <option value="Select">2</option>
+  <option value="Select">3</option>
+  <option value="Select">4</option>
+  </select>
+  </div>
+  Selection Key : <select>
+  <option value="Select">1</option>
+  <option value="Select">2</option>
+  <option value="Select">3</option>
+  </select>
+  <br>
+  <div id="adansbtn">
+  <input type="button" id="update" name="update" value="Update"  />
+  <input type="button" id="delete" name="delete" value="Delete" {{action 'showques'}}  />
+  <input type="button" id="add" name="add" value="Add" {{action 'addanswer'}} />
+  <input type="button" id="clear" name="clear" value="Clear"  />
+  </div>
+  </td>
+  </tr>
+  </table>
+</div>
+  {{/if}}
+
+
+{{#if isMcsa}}
+<div id="btn">
+    <div id="qpre"><b>Question-Preview</b></div>
+    <span>
+ <b>Q{{qPos}}.</b> {{qText}}
+    </span>
+    <br>
+    {{#each answerChoices as |item|}}
+        <input type="radio"  name="rd" disabled="true" /> {{item}}
+        <br>
+    {{/each}}
+</div>
+{{/if}}
+
+{{#if isFree}}
+<div id="free">
+    <div id="qpre"><b>Question-Preview</b></div>
+    <span>
+    <b>Q{{qPos}}.</b> {{qText}}
+    </span>
+    <br>
+    Write Your Answer :
+<br>
+    <textarea rows="7" cols="50" id="txtareaAns" disabled="true" >
+</textarea>
+</div>
+{{/if}}
+
+
+{{#if isMcma}}
+<div id="mcma">
+    <div id="qpre"><b>Question-Preview</b></div>
+    <span>
+ <b>Q{{qPos}}.</b> {{qText}}
+    </span>
+    <br>
+    {{#each answerChoices as |item|}}
+        <b><input type="checkbox" disabled="true"/></b> {{item}}
+        <br>
+    {{/each}}
+</div>
+{{/if}}

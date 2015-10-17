@@ -1,0 +1,99 @@
+<script type="text/javascript" src="TextBoxClear.js"></script>
+<style>
+#topics
+{
+
+  margin-left: 34px;
+}
+
+#topicspan
+{
+  color: red;
+  background-color: #c0d6e4;
+}
+
+
+#descspan
+{
+  color: red;
+  background-color: #c0d6e4;
+}
+
+#topicname
+{
+    margin-left: 31px;
+}
+#desc
+{
+  margin-left: -8px;
+}
+#enblbtn
+{
+  margin-left: 87px;
+}
+
+
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #6297BC;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 2px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 2px;
+	padding: 8px;
+  text-align:left;
+	border-style: solid;
+	border-color: #6297BC;
+	background-color: #ffffff;
+}
+</style>
+<table class="gridtable" width="100%" border="0" cellspacing="1" cellpadding="1">
+  <tr>
+    <td>
+<div id="topics">
+Topic : <select>
+  <option value="Select">Select a Topic</option>
+  {{#each topic as |item|}}
+        <option value="Select">{{item.topic}}</option>
+    {{/each}}
+</select>
+</div>
+<div id="topicname">
+Name : {{input value=newtopic}}<span id="topicspan">
+    {{#if topicnameempty}}
+        *Enter Topic Name.
+    {{else}}
+    {{/if}}
+  </span>
+</div>
+<div id="desc">
+Description : {{input value=description}}<span id="descspan">
+    {{#if descempty}}
+        *Enter Description for topic.
+    {{else}}
+    {{/if}}
+  </span>
+</div>
+<div id="enblbtn">
+enabled<input type="checkbox" name="myradio{{item.id}}" value="checked" checked="checked"  />
+<br>
+<input type="button" id="Add" name="add" value="Add" {{action 'addtopic'}}/>
+<input type="button" id="clear" name="clear" value="Clear"/>
+</div>
+<br>
+You can direct upload <b>TSV question file</b> from here instead per question management.
+<br>
+<input type="file" id="fileupload" name="fileup"/><input type="button" id="send" name="send" value="Upload"/>
+</td>
+</tr>
+</table>

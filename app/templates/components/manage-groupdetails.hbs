@@ -1,0 +1,47 @@
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+.btn{
+	text-align: center;
+	
+	border-width: 1px;
+	border-color: #666666;
+}
+</style>
+<!-- Table goes in the document BODY -->
+<div class="btn">
+<input type="button" {{action 'newgroup'}} name="newgroup" value="Create New Group" style="font-size:24px; " /> &nbsp;
+<input type="button" {{action 'existinggroup'}} name="existinggroup" value="Edit/Delete Group" style="font-size:24px; " />
+</div>
+<div class="comp">
+{{#if isClickedForNewGroup}}
+<br>
+		{{manage-new-group }}
+{{/if}}
+{{#if isClickedForExistingGroup}}
+<br>
+		{{manage-existing-group}}
+{{/if}}
+</div>
